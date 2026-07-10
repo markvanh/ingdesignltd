@@ -97,24 +97,24 @@
                         </li>
                         <li class="carousel-slide">
                             <div class="project-box">
-                                <div class="project-tag">Plywood Specialism</div>
+                                <div class="project-tag">Industrial</div>
                                 <h3>Industrial Clear-Span Vault</h3>
                                 <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/plywood.jpg" alt="Industrial Clear-Span Vault">
+                                    <img src="./portfolio_images/ing_des_nitrogen_store.jpg" alt="Industrial Clear-Span Vault">
                                 </div>
-                                <p><strong>The Challenge:</strong> Strict carbon limitations preventing heavy steel frameworks.</p>
-                                <p><strong>The Solution:</strong> A proprietary layout of engineered plywood box beams bridging 18 meters seamlessly.</p>
+                                <p><strong>The Challenge:</strong> New liquid nitrogen store at the University of Manchester.</p>
+                                <p><strong>The Solution:</strong> Steel columns supporting primary longitudinal beams, with secondary transverse joists/spanning between the primary beams to support the mass of new nitrogen tanks and liquid nitrogen at 808.5 kg/m³.</p>
                             </div>
                         </li>
                         <li class="carousel-slide">
                             <div class="project-box">
                                 <div class="project-tag">Commercial</div>
-                                <h3>Office Floor Plate Reinforcement</h3>
+                                <h3>Structural alteration for a new Footlocker store</h3>
                                 <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/commercial.jpg" alt="Office Floor Plate Reinforcement">
+                                    <img src="./portfolio_images/footlocker.jpg" alt="Office Floor Plate Reinforcement">
                                 </div>
-                                <p><strong>The Challenge:</strong> Increasing floor load capacity for heavy server room installations in a 1980s concrete building.</p>
-                                <p><strong>The Solution:</strong> Strategic carbon fibre wrapping and localized steel bracing to minimize headroom loss.</p>
+                                <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
+                                <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
                             </div>
                         </li>
                     </ul>
@@ -181,24 +181,24 @@
     <section id="locations" class="locations-section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Core UK Operational Hubs</h2>
+                <h2>UK-wide operation</h2>
                 <p>While we operate nationally, we maintain specialized regional focus areas across three specific hubs.</p>
             </div>
             <div class="grid-3">
                 <div class="hub-box">
                     <h3>Chorley</h3>
                     <span class="hub-tag">Regional Hub</span>
-                    <p>Serving Northern England with dedicated domestic additions and complex industrial builds mapping pipelines.</p>
-                </div>
-                <div class="hub-box">
-                    <h3>Aberdeen</h3>
-                    <span class="hub-tag">Regional Hub</span>
-                    <p>Specialized industrial framing design and modification strategies matching heavy structural demands.</p>
+                    <p>Our home office, visit us here.</p>
                 </div>
                 <div class="hub-box">
                     <h3>Winchester</h3>
                     <span class="hub-tag">Regional Hub</span>
-                    <p>Deep historic focus handling sensitive heritage work and structural intervention schemes.</p>
+                    <p>Winchester is a secondary base. </p>
+                </div>
+                <div class="hub-box">
+                    <h3>Aberdeen</h3>
+                    <span class="hub-tag">Regional Hub</span>
+                    <p>We have been expanding work in Aberdeen and now operate extensively in Aberdeen.</p>
                 </div>
             </div>
         </div>
@@ -209,12 +209,13 @@
         <div class="container footer-grid">
             <div>
                 <h3>ING Design Ltd</h3>
-                <p>Unusual, imaginative solutions to complex engineering parameters.</p>
+                <p>Unusual, imaginative solutions to complex engineering problems.</p>
+                <p>UK Wide Operations.</p>
+
             </div>
             <div>
-                <h4>Contact Systems</h4>
-                <p>Email: engineering@ingdesign.co.uk</p>
-                <p>UK Wide Operations</p>
+                <h4>Contact</h4>
+                <p>Email: ingdesignltd@hotmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -304,6 +305,7 @@
         const track = document.querySelector('.carousel-track');
         const nextButton = document.querySelector('.next-btn');
         const prevButton = document.querySelector('.prev-btn');
+        const container = document.querySelector('.carousel-track-container');
         
         let currentIndex = 0;
 
@@ -311,24 +313,41 @@
             const slides = Array.from(document.querySelectorAll('.carousel-slide'));
             if (slides.length === 0) return;
             
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+            const slideWidth = slides[0].offsetWidth;
+            const containerWidth = container.offsetWidth;
             
-            const amountToMove = currentIndex * (slideWidth + gap);
+            // Calculate how many full slides can fit
+            const visibleSlides = Math.max(1, Math.floor(containerWidth / slideWidth));
+            
+            // Calculate total width of visible slides
+            const visibleWidth = visibleSlides * slideWidth;
+            
+            // Initial offset to center the group of visible slides
+            const centeringOffset = (containerWidth - visibleWidth) / 2;
+            
+            // Constrain currentIndex so we don't scroll into empty space
+            const maxIndex = Math.max(0, slides.length - visibleSlides);
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+            const amountToMove = (currentIndex * slideWidth) - centeringOffset;
             track.style.transform = `translateX(-${amountToMove}px)`;
             
-            // Update button visibility or state if needed
+            // Update buttons
             prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
             prevButton.style.cursor = currentIndex === 0 ? 'default' : 'pointer';
             
-            const maxIndex = slides.length - 1;
             nextButton.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
             nextButton.style.cursor = currentIndex >= maxIndex ? 'default' : 'pointer';
         }
 
         nextButton.addEventListener('click', () => {
             const slides = document.querySelectorAll('.carousel-slide');
-            if (currentIndex < slides.length - 1) {
+            const containerWidth = container.offsetWidth;
+            const slideWidth = slides[0].offsetWidth;
+            const visibleSlides = Math.max(1, Math.floor(containerWidth / slideWidth));
+            const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+            if (currentIndex < maxIndex) {
                 currentIndex++;
                 updateCarousel();
             }
@@ -341,9 +360,12 @@
             }
         });
 
-        window.addEventListener('resize', updateCarousel);
+        window.addEventListener('resize', () => {
+            updateCarousel();
+        });
         
         // Initial setup
+        window.addEventListener('load', updateCarousel);
         document.addEventListener('DOMContentLoaded', updateCarousel);
     </script>
 </body>
