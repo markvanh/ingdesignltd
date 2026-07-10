@@ -72,26 +72,45 @@
         </div>
     </section>
 
-    <!-- Portfolio Placeholders -->
+    <!-- Portfolio Carousel -->
     <section id="portfolio" class="portfolio-section">
         <div class="container">
             <div class="section-header">
                 <h2>Documented Cases</h2>
                 <p>A glance at how we turn difficult structural geometry into safe, buildable realities.</p>
             </div>
-            <div class="grid-2">
-                <div class="project-box">
-                    <div class="project-tag">Heritage Case</div>
-                    <h3>Compromised Historic Timber Stabilization</h3>
-                    <p><strong>The Challenge:</strong> Shifting foundation geometry on a 17th-century framework.</p>
-                    <p><strong>The Solution:</strong> Hidden custom reinforcement brackets engineered to take the dead load without ruining visual continuity.</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" aria-label="Previous slide">&#10094;</button>
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
+                        <li class="carousel-slide">
+                            <div class="project-box">
+                                <div class="project-tag">Heritage Case</div>
+                                <h3>Compromised Historic Timber Stabilization</h3>
+                                <p><strong>The Challenge:</strong> Shifting foundation geometry on a 17th-century framework.</p>
+                                <p><strong>The Solution:</strong> Hidden custom reinforcement brackets engineered to take the dead load without ruining visual continuity.</p>
+                            </div>
+                        </li>
+                        <li class="carousel-slide">
+                            <div class="project-box">
+                                <div class="project-tag">Plywood Specialism</div>
+                                <h3>Industrial Clear-Span Vault</h3>
+                                <p><strong>The Challenge:</strong> Strict carbon limitations preventing heavy steel frameworks.</p>
+                                <p><strong>The Solution:</strong> A proprietary layout of engineered plywood box beams bridging 18 meters seamlessly.</p>
+                            </div>
+                        </li>
+                        <li class="carousel-slide">
+                            <div class="project-box">
+                                <div class="project-tag">Commercial</div>
+                                <h3>Office Floor Plate Reinforcement</h3>
+                                <p><strong>The Challenge:</strong> Increasing floor load capacity for heavy server room installations in a 1980s concrete building.</p>
+                                <p><strong>The Solution:</strong> Strategic carbon fibre wrapping and localized steel bracing to minimize headroom loss.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="project-box">
-                    <div class="project-tag">Plywood Specialism</div>
-                    <h3>Industrial Clear-Span Vault</h3>
-                    <p><strong>The Challenge:</strong> Strict carbon limitations preventing heavy steel frameworks.</p>
-                    <p><strong>The Solution:</strong> A proprietary layout of engineered plywood box beams bridging 18 meters seamlessly.</p>
-                </div>
+                <button class="carousel-btn next-btn" aria-label="Next slide">&#10095;</button>
             </div>
         </div>
     </section>
@@ -129,7 +148,7 @@
             <div class="grid-3">
                 <div class="team-card">
                     <div class="avatar">IG</div>
-                    <h3>Ian Grindley</h3>
+                    <h3>Ian Grindey</h3>
                     <p class="role">Principal Structural Engineer & Owner</p>
                     <p>Overseeing the core creative vision and technical direction of the firm's complex structural designs.</p>
                 </div>
@@ -272,5 +291,51 @@
         });
     </script>
 
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const nextButton = document.querySelector('.next-btn');
+        const prevButton = document.querySelector('.prev-btn');
+        
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            if (slides.length === 0) return;
+            
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+            
+            const amountToMove = currentIndex * (slideWidth + gap);
+            track.style.transform = `translateX(-${amountToMove}px)`;
+            
+            // Update button visibility or state if needed
+            prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
+            prevButton.style.cursor = currentIndex === 0 ? 'default' : 'pointer';
+            
+            const maxIndex = slides.length - 1;
+            nextButton.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+            nextButton.style.cursor = currentIndex >= maxIndex ? 'default' : 'pointer';
+        }
+
+        nextButton.addEventListener('click', () => {
+            const slides = document.querySelectorAll('.carousel-slide');
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', updateCarousel);
+        
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', updateCarousel);
+    </script>
 </body>
 </html>
