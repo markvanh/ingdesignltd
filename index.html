@@ -8,394 +8,376 @@
 </head>
 <body>
 
-    <!-- Responsive Navigation -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo">ING <span>Design Ltd</span></div>
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            <nav class="nav-links">
-                <a href="#home" class="active">Home</a>
-                <a href="#services">Sectors</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#specialism">Plywood Beams</a>
-                <a href="#team">Our Team</a>
-                <a href="#locations">Hubs</a>
-                <a href="#contact" class="btn-nav">Get In Touch</a>
-            </nav>
-            <label for="nav-toggle" class="nav-toggle-label">
-                <span></span>
-            </label>
+<!-- Responsive Navigation -->
+<header class="navbar">
+    <div class="container nav-container">
+        <div class="logo">ING <span>Design Ltd</span></div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Sectors</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#specialism">Plywood Beams</a>
+            <a href="#team">Our Team</a>
+            <a href="#locations">Hubs</a>
+            <a href="#contact" class="btn-nav">Get In Touch</a>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <video autoplay muted playsinline preload="auto" aria-hidden="true" poster="fallback-image.png" class="bg-video">
+        <source src="ING_design_web.mp4" type="video/mp4">
+    </video>
+
+    <div class="container hero-content">
+        <span class="badge">UK's Sole Plywood Beam Specialist</span>
+        <h1> Structural Engineering Wizardry<br><br>
+        </h1>
+        <h2>ING Design provides innovative solutions UK-wide<br>in the residential, commercial, industrial, and heritage sectors
+        </h2>
+
+        <div class="hero-actions">
+            <a href="#portfolio" class="btn-primary">Explore Past Projects</a>
+            <button id="replay-video" class="btn-secondary" style="display: none;">Replay Video</button>
         </div>
-    </header>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <video autoplay muted playsinline preload="auto" aria-hidden="true" poster="fallback-image.png" class="bg-video">
-            <source src="ING_design_web.mp4" type="video/mp4">
-        </video>
-
-        <div class="container hero-content">
-            <span class="badge">UK's Sole Plywood Beam Specialist</span>
-            <h1> Structural Engineering Wizardry<br><br>
-            </h1>
-            <h2>ING Design provides innovative solutions UK-wide<br>in the residential, commercial, industrial, and heritage sectors
-            </h2>
-
-            <div class="hero-actions">
-                <a href="#portfolio" class="btn-primary">Explore Past Projects</a>
-                <button id="replay-video" class="btn-secondary" style="display: none;">Replay Video</button>
+<!-- Sectors & Services -->
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Core Engineering Disciplines</h2>
+            <p>From simple domestic expansions to structurally compromised architectural heritage monuments.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Domestic Projects</h3>
+                <p>New builds, elegant architectural extensions, and structurally complex home modifications requiring creative framing layout configurations.</p>
+            </div>
+            <div class="card">
+                <h3>Industrial & Commercial</h3>
+                <p>High-load warehouses, clear-span industrial plants, and tailored modifications designed for intense operational constraints.</p>
+            </div>
+            <div class="card">
+                <h3>Heritage & Stabilisation</h3>
+                <p>Delicate, high-stakes engineering intervention on structurally compromised historic frameworks and failing vintage brickwork.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Sectors & Services -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Core Engineering Disciplines</h2>
-                <p>From simple domestic expansions to structurally compromised architectural heritage monuments.</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Domestic Projects</h3>
-                    <p>New builds, elegant architectural extensions, and structurally complex home modifications requiring creative framing layout configurations.</p>
-                </div>
-                <div class="card">
-                    <h3>Industrial & Commercial</h3>
-                    <p>High-load warehouses, clear-span industrial plants, and tailored modifications designed for intense operational constraints.</p>
-                </div>
-                <div class="card">
-                    <h3>Heritage & Stabilisation</h3>
-                    <p>Delicate, high-stakes engineering intervention on structurally compromised historic frameworks and failing vintage brickwork.</p>
-                </div>
-            </div>
+<!-- Portfolio Carousel -->
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Portfolio</h2>
+            <p>Examples of our work, turning structural problems into buildable realities.</p>
         </div>
-    </section>
 
-    <!-- Portfolio Carousel -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Portfolio</h2>
-                <p>Examples of our work, turning structural problems into buildable realities.</p>
-            </div>
-            
-            <div class="carousel-container">
-                <button class="carousel-btn prev-btn" aria-label="Previous slide">&#10094;</button>
-                <div class="carousel-track-container">
-                    <ul class="carousel-track">
-                        <li class="carousel-slide">
-                            <div class="project-box">
-                                <div class="project-tag">Heritage Case</div>
-                                <h3>Compromised Historic Timber Stabilization</h3>
-                                <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/heritage.jpg" alt="Historic Timber Stabilization">
-                                </div>
-                                <p><strong>The Challenge:</strong> Shifting foundation geometry on a 17th-century framework.</p>
-                                <p><strong>The Solution:</strong> Hidden custom reinforcement brackets engineered to take the dead load without ruining visual continuity.</p>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" aria-label="Previous slide">&#10094;</button>
+            <div class="carousel-track-container">
+                <ul class="carousel-track">
+                    <li class="carousel-slide">
+                        <div class="project-box">
+                            <div class="project-tag">Heritage Case</div>
+                            <h3>Compromised Historic Timber Stabilization</h3>
+                            <div class="project-image-placeholder">
+                                <img src="./portfolio_images/heritage.jpg" alt="Historic Timber Stabilization">
                             </div>
-                        </li>
-                        <li class="carousel-slide">
-                            <div class="project-box">
-                                <div class="project-tag">Industrial</div>
-                                <h3>Industrial support works</h3>
-                                <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/ing_des_nitrogen_store.jpg" alt="Industrial Clear-Span Vault">
-                                </div>
-                                <p><strong>The Challenge:</strong> New liquid nitrogen store at the University of Manchester.</p>
-                                <p><strong>The Solution:</strong> Steel columns supporting primary longitudinal beams, with secondary transverse joists/spanning between the primary beams to support the mass of new nitrogen tanks and liquid nitrogen at 808.5 kg/m³.</p>
+                            <p><strong>The Challenge:</strong> Shifting foundation geometry on a 17th-century framework.</p>
+                            <p><strong>The Solution:</strong> Hidden custom reinforcement brackets engineered to take the dead load without ruining visual continuity.</p>
+                        </div>
+                    </li>
+                    <li class="carousel-slide">
+                        <div class="project-box">
+                            <div class="project-tag">Industrial</div>
+                            <h3>Industrial plant support and installation</h3>
+                            <div class="project-image-placeholder">
+                                <img src="./portfolio_images/ing_des_nitrogen_store.jpg" alt="Industrial Clear-Span Vault">
                             </div>
-                        </li>
-                        <li class="carousel-slide">
-                            <div class="project-box">
-                                <div class="project-tag">Commercial</div>
-                                <h3>Structural alteration for a new Footlocker store</h3>
-                                <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/new_footlocker.jpg" alt="Office Floor Plate Reinforcement">
-                                </div>
-                                <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
-                                <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
+                            <p><strong>The Challenge:</strong> New liquid nitrogen store at the University of Manchester.</p>
+                            <p><strong>The Solution:</strong> Steel columns supporting primary longitudinal beams, with secondary transverse joists/spanning between the primary beams to support the mass of new nitrogen tanks and liquid nitrogen at 808.5 kg/m³.</p>
+                        </div>
+                    </li>
+                    <li class="carousel-slide">
+                        <div class="project-box">
+                            <div class="project-tag">Commercial</div>
+                            <h3>Structural alteration for a new Footlocker store</h3>
+                            <div class="project-image-placeholder">
+                                <img src="./portfolio_images/new_footlocker.jpg" alt="Office Floor Plate Reinforcement">
                             </div>
-                        </li>
-                        <li class="carousel-slide">
-                            <div class="project-box">
-                                <div class="project-tag">Commercial</div>
-                                <h3>Structural alteration for a new Footlocker store</h3>
-                                <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/new_footlocker.jpg" alt="Office Floor Plate Reinforcement">
-                                </div>
-                                <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
-                                <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
+                            <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
+                            <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
+                        </div>
+                    </li>
+                    <li class="carousel-slide">
+                        <div class="project-box">
+                            <div class="project-tag">Commercial</div>
+                            <h3>Structural alteration for a new Footlocker store</h3>
+                            <div class="project-image-placeholder">
+                                <img src="./portfolio_images/new_footlocker.jpg" alt="Office Floor Plate Reinforcement">
                             </div>
-                        </li>
-                        <li class="carousel-slide">
-                            <div class="project-box">
-                                <div class="project-tag">Commercial</div>
-                                <h3>Structural alteration for a new Footlocker store</h3>
-                                <div class="project-image-placeholder">
-                                    <img src="./portfolio_images/new_footlocker.jpg" alt="Office Floor Plate Reinforcement">
-                                </div>
-                                <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
-                                <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
+                            <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
+                            <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
+                        </div>
+                    </li>
+                    <li class="carousel-slide">
+                        <div class="project-box">
+                            <div class="project-tag">Commercial</div>
+                            <h3>Structural alteration for a new Footlocker store</h3>
+                            <div class="project-image-placeholder">
+                                <img src="./portfolio_images/new_footlocker.jpg" alt="Office Floor Plate Reinforcement">
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <button class="carousel-btn next-btn" aria-label="Next slide">&#10095;</button>
+                            <p><strong>The Challenge:</strong> Opening the second floor and assocated structural works out a new Footlocker store in the Baltic Triangle in Liverpool.</p>
+                            <p><strong>The Solution:</strong> A section of the existing concrete floor was removed to create the new opening, with temporary works supporting the structure during removal. New structural steel beams and columns were then installed to transfer the retained floor and wall loads safely around the enlarged opening.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next slide">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<!-- Flagship Specialism -->
+<section id="specialism" class="specialism-section">
+    <div class="container">
+        <div class="grid-2">
+            <div class="specialism-text">
+                <h2>The UK Authority on Plywood Box Beam Construction</h2>
+                <p>Plywood box beams offer incredible strength-to-weight ratios, sustainable profiles, and spectacular architectural aesthetics. As the nation's sole dedicated specialist, we bridge rigorous academic research with hands-on site deployment.</p>
+                <blockquote>
+                    "Our team houses proprietary research and custom testing data that allows us to clear plywood installations where others say it's structurally impossible."
+                </blockquote>
+            </div>
+            <div class="specialism-card">
+                <h3>Why Plywood Beams?</h3>
+                <ul>
+                    <li><strong>Unmatched Lightweight Strength:</strong> Ideal for complex modifications.</li>
+                    <li><strong>Low Embodied Carbon:</strong> Truly sustainable technical design.</li>
+                    <li><strong>Creative Freedom:</strong> Clean spans without massive steel footprints.</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Flagship Specialism -->
-    <section id="specialism" class="specialism-section">
-        <div class="container">
-            <div class="grid-2">
-                <div class="specialism-text">
-                    <h2>The UK Authority on Plywood Box Beam Construction</h2>
-                    <p>Plywood box beams offer incredible strength-to-weight ratios, sustainable profiles, and spectacular architectural aesthetics. As the nation's sole dedicated specialist, we bridge rigorous academic research with hands-on site deployment.</p>
-                    <blockquote>
-                        "Our team houses proprietary research and custom testing data that allows us to clear plywood installations where others say it's structurally impossible."
-                    </blockquote>
-                </div>
-                <div class="specialism-card">
-                    <h3>Why Plywood Beams?</h3>
-                    <ul>
-                        <li><strong>Unmatched Lightweight Strength:</strong> Ideal for complex modifications.</li>
-                        <li><strong>Low Embodied Carbon:</strong> Truly sustainable technical design.</li>
-                        <li><strong>Creative Freedom:</strong> Clean spans without massive steel footprints.</li>
-                    </ul>
-                </div>
+<!-- Team Section -->
+<section id="team" class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Meet The Minds</h2>
+            <p>The engineering team driving innovative solutions across the UK.</p>
+        </div>
+        <div class="grid-3">
+            <div class="team-card">
+                <div class="avatar">IG</div>
+                <h3>Ian Grindey</h3>
+                <p class="role">Principal Structural Engineer & Owner</p>
+                <p>Overseeing the core creative vision and technical direction of the firm's complex structural designs.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">X</div>
+                <h3>Engineer X</h3>
+                <p class="role">Plywood Box Beam Specialist</p>
+                <p>Holding advanced academic credentials and proprietary expertise in modern plywood box beam structural properties.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">Y</div>
+                <h3>Engineer Y</h3>
+                <p class="role">Structural Engineer</p>
+                <p>Specializing in computational structural modeling, conversion math, and high-fidelity building modifications layout pipelines.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Team Section -->
-    <section id="team" class="team-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Meet The Minds</h2>
-                <p>The engineering team driving innovative solutions across the UK.</p>
+<!-- Geographic Hubs -->
+<section id="locations" class="locations-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>UK-wide operation</h2>
+            <p>While we operate nationally, we maintain specialized regional focus areas across three specific hubs.</p>
+        </div>
+        <div class="grid-3">
+            <div class="hub-box">
+                <h3>Chorley</h3>
+                <span class="hub-tag">Regional Hub</span>
+                <p>Our home office, visit us here.</p>
             </div>
-            <div class="grid-3">
-                <div class="team-card">
-                    <div class="avatar">IG</div>
-                    <h3>Ian Grindey</h3>
-                    <p class="role">Principal Structural Engineer & Owner</p>
-                    <p>Overseeing the core creative vision and technical direction of the firm's complex structural designs.</p>
-                </div>
-                <div class="team-card">
-                    <div class="avatar">X</div>
-                    <h3>Engineer X</h3>
-                    <p class="role">Plywood Box Beam Specialist</p>
-                    <p>Holding advanced academic credentials and proprietary expertise in modern plywood box beam structural properties.</p>
-                </div>
-                <div class="team-card">
-                    <div class="avatar">Y</div>
-                    <h3>Engineer Y</h3>
-                    <p class="role">Structural Engineer</p>
-                    <p>Specializing in computational structural modeling, conversion math, and high-fidelity building modifications layout pipelines.</p>
-                </div>
+            <div class="hub-box">
+                <h3>Winchester</h3>
+                <span class="hub-tag">Regional Hub</span>
+                <p>Winchester is a secondary base. </p>
+            </div>
+            <div class="hub-box">
+                <h3>Aberdeen</h3>
+                <span class="hub-tag">Regional Hub</span>
+                <p>We have been expanding work in Aberdeen and now operate extensively in Aberdeen.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Geographic Hubs -->
-    <section id="locations" class="locations-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>UK-wide operation</h2>
-                <p>While we operate nationally, we maintain specialized regional focus areas across three specific hubs.</p>
-            </div>
-            <div class="grid-3">
-                <div class="hub-box">
-                    <h3>Chorley</h3>
-                    <span class="hub-tag">Regional Hub</span>
-                    <p>Our home office, visit us here.</p>
-                </div>
-                <div class="hub-box">
-                    <h3>Winchester</h3>
-                    <span class="hub-tag">Regional Hub</span>
-                    <p>Winchester is a secondary base. </p>
-                </div>
-                <div class="hub-box">
-                    <h3>Aberdeen</h3>
-                    <span class="hub-tag">Regional Hub</span>
-                    <p>We have been expanding work in Aberdeen and now operate extensively in Aberdeen.</p>
-                </div>
-            </div>
+<!-- Footer -->
+<footer>
+    <div class="container footer-grid">
+        <div>
+            <h3>ING Design Ltd</h3>
+            <p>Unusual, imaginative solutions to complex engineering problems.</p>
+            <p>UK Wide Operations.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <h3>ING Design Ltd</h3>
-                <p>Unusual, imaginative solutions to complex engineering problems.</p>
-                <p>UK Wide Operations.</p>
-
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <p>Email: ingdesignltd@hotmail.com</p>
-            </div>
+        <div>
+            <h4>Contact</h4>
+            <p>Email: ingdesignltd@hotmail.com</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 ING Design Ltd. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 ING Design Ltd. All rights reserved.</p>
+    </div>
+</footer>
 
-    <script>
-        window.addEventListener('load', function() {
-            const video = document.querySelector('.bg-video');
-            if (video) {
-                video.play().catch(error => {
-                    console.log("Autoplay was prevented:", error);
+<!-- Video Automation Routing Script -->
+<script>
+    window.addEventListener('load', function() {
+        const video = document.querySelector('.bg-video');
+        if (video) {
+            video.play().catch(error => {
+                console.log("Autoplay was prevented:", error);
+            });
+
+            const heroContent = document.querySelector('.hero-content');
+            const replayBtn = document.getElementById('replay-video');
+
+            if (replayBtn) {
+                replayBtn.addEventListener('click', function() {
+                    if (heroContent) {
+                        heroContent.style.transition = 'opacity 0.5s ease';
+                        heroContent.style.opacity = '0';
+                        setTimeout(() => {
+                            if (heroContent.style.opacity === '0') {
+                                heroContent.style.visibility = 'hidden';
+                            }
+                        }, 500);
+                    }
+
+                    video.currentTime = 0;
+                    video.play();
+                    replayBtn.style.display = 'none';
                 });
+            }
 
-                const heroContent = document.querySelector('.hero-content');
-                const replayBtn = document.getElementById('replay-video');
+            video.addEventListener('ended', function() {
+                video.pause();
+
+                if (heroContent) {
+                    heroContent.style.visibility = 'visible';
+                    heroContent.style.opacity = '1';
+                }
 
                 if (replayBtn) {
-                    replayBtn.addEventListener('click', function() {
-                        // Hide content
-                        if (heroContent) {
-                            heroContent.style.transition = 'opacity 0.5s ease';
-                            heroContent.style.opacity = '0';
-                            // Use setTimeout to set visibility/pointer-events if needed, 
-                            // but opacity 0 is often enough for "disappear"
-                            setTimeout(() => {
-                                if (heroContent.style.opacity === '0') {
-                                    heroContent.style.visibility = 'hidden';
-                                }
-                            }, 500);
-                        }
-                        
-                        video.currentTime = 0;
-                        video.play();
-                        replayBtn.style.display = 'none';
-                    });
-                }
-
-                // Ensure the video stops on the last frame or poster after playing once
-                video.addEventListener('ended', function() {
-                    video.pause();
-                    
-                    // Show content again
-                    if (heroContent) {
-                        heroContent.style.visibility = 'visible';
-                        heroContent.style.opacity = '1';
-                    }
-
-                    // Show replay button
-                    if (replayBtn) {
-                        replayBtn.style.display = 'inline-block';
-                    }
-                });
-            }
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    const headerOffset = 70;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                    // Update active state in nav
-                    document.querySelectorAll('.nav-links a').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    if (this.classList.contains('btn-nav') === false) {
-                        this.classList.add('active');
-                    }
-
-                    // Close mobile menu if open
-                    const navToggle = document.getElementById('nav-toggle');
-                    if (navToggle) {
-                        navToggle.checked = false;
-                    }
+                    replayBtn.style.display = 'inline-block';
                 }
             });
-        });
-    </script>
-
-    <script>
-        const track = document.querySelector('.carousel-track');
-        const nextButton = document.querySelector('.next-btn');
-        const prevButton = document.querySelector('.prev-btn');
-        const container = document.querySelector('.carousel-track-container');
-        
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-            if (slides.length === 0) return;
-            
-            const slideWidth = slides[0].offsetWidth;
-            const containerWidth = container.offsetWidth;
-            
-            // Calculate how many full slides can fit
-            const visibleSlides = Math.max(1, Math.floor(containerWidth / slideWidth));
-            
-            // Calculate total width of visible slides
-            const visibleWidth = visibleSlides * slideWidth;
-            
-            // Initial offset to center the group of visible slides
-            const centeringOffset = (containerWidth - visibleWidth) / 2;
-            
-            // Constrain currentIndex so we don't scroll into empty space
-            const maxIndex = Math.max(0, slides.length - visibleSlides);
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
-
-            const amountToMove = (currentIndex * slideWidth) - centeringOffset;
-            track.style.transform = `translateX(-${amountToMove}px)`;
-            
-            // Update buttons
-            prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
-            prevButton.style.cursor = currentIndex === 0 ? 'default' : 'pointer';
-            
-            nextButton.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
-            nextButton.style.cursor = currentIndex >= maxIndex ? 'default' : 'pointer';
         }
+    });
 
-        nextButton.addEventListener('click', () => {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const containerWidth = container.offsetWidth;
-            const slideWidth = slides[0].offsetWidth;
-            const visibleSlides = Math.max(1, Math.floor(containerWidth / slideWidth));
-            const maxIndex = Math.max(0, slides.length - visibleSlides);
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateCarousel();
+            if (targetElement) {
+                const headerOffset = 70;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                if (this.classList.contains('btn-nav') === false) {
+                    this.classList.add('active');
+                }
+
+                const navToggle = document.getElementById('nav-toggle');
+                if (navToggle) {
+                    navToggle.checked = false;
+                }
             }
         });
+    });
+</script>
 
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
+<!-- Hardware Accelerated Smooth Carousel Engine -->
+<script>
+    const track = document.querySelector('.carousel-track');
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
+    const container = document.querySelector('.carousel-track-container');
 
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(updateCarousel, 100);
-        });
-        
-        // Initial setup
-        window.addEventListener('load', updateCarousel);
-        document.addEventListener('DOMContentLoaded', updateCarousel);
-    </script>
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        if (slides.length === 0) return;
+
+        const slideWidth = slides[0].offsetWidth;
+        const containerWidth = container.offsetWidth;
+
+        const visibleSlides = Math.max(1, Math.floor(containerWidth / slideWidth));
+        const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+        // Fixed clean offset logic keeping track elements safely within absolute boundaries
+        const amountToMove = currentIndex * slideWidth;
+        track.style.transform = `translateX(-${amountToMove}px)`;
+
+        prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        prevButton.style.cursor = currentIndex === 0 ? 'default' : 'pointer';
+
+        nextButton.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+        nextButton.style.cursor = currentIndex >= maxIndex ? 'default' : 'pointer';
+    }
+
+    nextButton.addEventListener('click', () => {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const visibleSlides = Math.max(1, Math.floor(container.offsetWidth / slides[0].offsetWidth));
+        const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateCarousel, 100);
+    });
+
+    document.addEventListener('DOMContentLoaded', updateCarousel);
+</script>
 </body>
 </html>
