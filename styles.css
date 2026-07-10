@@ -14,7 +14,7 @@
     html {
         scroll-behavior: auto;
     }
-    
+
     * {
         transition: none !important;
         animation: none !important;
@@ -28,7 +28,7 @@
 }
 
 html {
-    scroll-behavior: auto; /* Changed from smooth to avoid performance issues during window management */
+    scroll-behavior: auto;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
 }
 
 /* Layout Utilities - Mobile First Stack */
-.grid-2, .grid-3 {
+.grid-2, .grid-3, .grid-4 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
@@ -92,12 +92,12 @@ body {
 }
 
 .logo span {
-    color: var(--accent);
+    color: var(--white);
     font-weight: 300;
 }
 
 .nav-links {
-    display: none; /* Collapsed mobile menu layer */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 70px;
@@ -166,7 +166,7 @@ body {
     align-items: center;
     overflow: hidden;
     color: var(--white);
-    background-color: #000; /* Ensure no white gaps if the image doesn't fill the section */
+    background-color: #000;
 }
 
 .bg-video {
@@ -179,6 +179,7 @@ body {
     object-position: center;
     pointer-events: none;
     z-index: 1;
+    will-change: transform;
 }
 
 .hero-content {
@@ -201,23 +202,18 @@ body {
 }
 
 .hero h1 {
-    /* Fluid typography: scales dynamically between 2rem and 3.75rem based on screen width */
     font-size: clamp(2rem, 5vw, 3.75rem);
     line-height: 1.15;
     margin-bottom: 24px;
     font-weight: 800;
-    /* Soft, diffused cinematic shadows to pop white text off the bright brickwork/video */
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero h2 {
-    /* Increased base opacity slightly for better readability against bright backgrounds */
     color: rgba(255,255,255,0.9);
-    /* Fluid typography: scales between 1.15rem and 1.75rem */
     font-size: clamp(1.15rem, 2.5vw, 1.75rem);
     margin-bottom: 40px;
-    font-weight: 500; /* Bumped up slightly from 400 for better contrast */
-    /* Matching text shadow */
+    font-weight: 500;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -253,7 +249,7 @@ body {
 .btn-secondary, #replay-video {
     border: 2px solid rgba(255,255,255,0.2);
     color: var(--white);
-    background-color: rgba(0,0,0,0.3); /* Added subtle dark backing so button is always legible */
+    background-color: rgba(0,0,0,0.3);
 }
 
 .btn-secondary:hover, #replay-video:hover {
@@ -340,14 +336,18 @@ body {
 /* Case Study Directory Portfolio elements */
 .portfolio-section {
     padding: 80px 0;
-    overflow: hidden; /* Prevent horizontal scroll from the track */
+}
+
+.portfolio-section .container {
+    max-width: 1600px;
+    position: relative;
 }
 
 .carousel-container {
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+    transition: width 0.3s ease;
 }
 
 .carousel-track-container {
@@ -358,37 +358,68 @@ body {
 .carousel-track {
     display: flex;
     list-style: none;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     padding: 20px 0;
     margin: 0;
+    align-items: stretch; /* Enforces uniform box heights across the slide row */
 }
 
 .carousel-slide {
-    flex: 0 0 auto;
-    width: 320px;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
     padding: 0 16px;
     box-sizing: border-box;
+    display: flex; /* Ensures card child fills the slide space correctly */
 }
 
+@media (min-width: 560px) {
+    .carousel-container {
+        width: 480px;
+    }
+    .carousel-slide {
+        flex: 0 0 480px;
+        width: 480px;
+        min-width: 480px;
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 1080px) {
+    .carousel-container {
+        width: 960px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .carousel-container {
+        width: 1440px;
+    }
+}
+
+/* Variable-Height Proportional Image Chassis */
 .project-image-placeholder {
     width: 100%;
-    aspect-ratio: 1 / 1;
     background-color: var(--primary-light);
     margin-bottom: 20px;
     border-radius: 4px;
     overflow: hidden;
+    border: 1px solid #e1e6eb;
 }
 
 .project-image-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;       /* Mandates full horizontal expanse coverage across the tile layout */
+    height: auto;      /* Relaxes height boundaries to render natural aspect scaling fluidly */
+    display: block;
 }
 
 .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: var(--primary-dark);
     color: var(--white);
-    border: none;
+    border: 2px solid var(--accent);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -399,12 +430,25 @@ body {
     font-size: 1.25rem;
     z-index: 10;
     transition: var(--transition);
-    flex-shrink: 0;
-    border: 2px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .carousel-btn:hover {
     background-color: var(--accent);
+}
+
+.prev-btn {
+    left: -64px;
+}
+
+.next-btn {
+    right: -64px;
+}
+
+@media (max-width: 560px) {
+    .carousel-container { padding: 0 20px; }
+    .prev-btn { left: 4px; }
+    .next-btn { right: 4px; }
 }
 
 .project-box {
@@ -413,7 +457,11 @@ body {
     padding: 32px;
     border-radius: 6px;
     transition: var(--transition);
-    height: 100%; /* Ensure all boxes in track have same height */
+    height: 100%;
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-box:hover {
@@ -452,17 +500,13 @@ body {
 }
 
 .avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
     background-color: var(--primary-dark);
-    color: var(--white);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     margin: 0 auto 20px;
-    font-weight: 700;
-    font-size: 1.5rem;
     border: 3px solid var(--accent);
 }
 
@@ -544,16 +588,20 @@ footer h3, footer h4 {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .hero {
         padding: 0;
     }
 
     .nav-toggle-label {
-        display: none; /* Hide hamburger icon */
+        display: none;
     }
 
     .nav-links {
-        display: flex !important; /* Forces layout visualization display */
+        display: flex !important;
         flex-direction: row;
         position: static;
         padding: 0;
@@ -566,5 +614,12 @@ footer h3, footer h4 {
 
     .footer-grid {
         grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Large Desktop / Laptop (Minimum Viewport: 1024px) */
+@media (min-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
